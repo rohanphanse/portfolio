@@ -49,7 +49,14 @@ const ProjectPage = ({ project }) => {
 }
 
 export const getStaticProps = async (context) => {
-    const res = await fetch(`${server}/api/projects/${context.params.id}`)
+    const res = await fetch(`${server}/api/projects/${context.params.id}`, {
+        method: "GET",
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*',
+          },
+    })
+    console.log("id_1", res)
     const project = await res.json()
 
     return {
@@ -60,8 +67,16 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${server}/api/projects`)
+    const res = await fetch(`${server}/api/projects`, {
+        method: "POST",
+        headers: {
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*',
+          },
+    })
+    console.log("id_2", res)
     const projects = await res.json()
+    console.log("sdfsdf", projects)
 
     const ids = projects.map(project => project.id)
     const paths = ids.map(id => ({ params: { id } }))

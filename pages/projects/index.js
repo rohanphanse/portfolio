@@ -51,14 +51,16 @@ export const getStaticProps = async (context) => {
     const res = await fetch(`${server}/api/projects`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
-        },
+            Accept: 'application/json, text/plain, */*',
+            'User-Agent': '*',
+          },
         body: JSON.stringify({
             sort: {
                 type: "date"
             }
         })
     })
+    console.log("0", res)
     const projects = await res.json()
 
     return {

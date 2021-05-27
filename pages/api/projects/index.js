@@ -10,11 +10,11 @@ export default function handler(req, res) {
 
     const params = req.body
     if (params) {
-        if (params.sort) {
-            if (params.sort.type === "date") {
-                data = Utility.sortByDate(projectData, { order: params.sort.order })
+        if (params?.sort) {
+            if (params?.sort?.type === "date") {
+                data = Utility.sortByDate(projectData, { order: params?.sort?.order })
             }
         }
     }
-    res.status(200).json(data)
+    res.status(200).send(data)
 }
