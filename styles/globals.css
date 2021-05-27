@@ -10,6 +10,7 @@
     --accent: #fa48fa;
     --accent-dark: #af0baf;
     --medium: #333347;
+    --link: #0077ff;
 }
 
 * {
@@ -26,6 +27,10 @@ body {
     margin: 0px;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+
+h1 {
+    margin: 0;
 }
 
 a {

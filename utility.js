@@ -28,7 +28,10 @@ Utility.languageTags = {
     "HTML": { color: "#e34c26" },
     "CSS": {color: "#264de4" },
     "JavaScript": { color: "#f7df1e", textColor: "black" },
-    "Python": { color: "#ffe873", textColor: "black" }
+    "Python": { color: "#ffe873", textColor: "black" },
+    "Snap": { color: "#e0a817", textColor: "black" },
+    "React": { color: "#61dbfb", textColor: "black" },
+    "Next.js": { color: "white", textColor: "black"  },
 }
 
 Utility.getProject = (projectData, id) => {
