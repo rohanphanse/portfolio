@@ -1,7 +1,14 @@
-import '../styles/globals.css'
+import Metadata from "../components/Metadata.js"
+import "../styles/globals.css"
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+
+const App = ({ Component, pageProps }) => {
+    return (
+        <>
+            <Metadata></Metadata>
+            <Component {...pageProps}></Component>
+        </>
+    )
 }
 
-export default MyApp
+export default App

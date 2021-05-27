@@ -1,16 +1,48 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+    --background: #212131;
+    --primary: #17171E;
+    --text-bright: #e4e4e4;
+    --text-light: #D3D3D3;
+    --text: white;
+    --text-dark: black;
+    --accent: #fa48fa;
+    --accent-dark: #af0baf;
+    --medium: #333347;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input {
+    font-family: "Open Sans";
 }
