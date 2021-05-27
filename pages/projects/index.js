@@ -1,13 +1,16 @@
-import { server } from "../../config"
 import ProjectCard from "../../components/ProjectCard"
 import Layout from "../../components/Layout"
+import { projectData } from "../../data"
+import Utility from "../../utility"
 
 const ProjectsPage = props => {
+    const projects = Utility.sortByDate(projectData)
+
     return (
         <>
             <Layout page = "Projects">
                 <div className = "projects">
-                    {props.projects.map(project => (
+                    {projects.map(project => (
                         <ProjectCard project = {project} key = {project.id} />
                     ))}
                 </div>
@@ -45,29 +48,6 @@ const ProjectsPage = props => {
             `}</style>
         </>
     )
-}
-
-export const getStaticProps = async (context) => {
-    const res = await fetch(`${server}/api/projects`, {
-        method: "POST",
-        headers: {
-            Accept: 'application/json, text/plain, */*',
-            'User-Agent': '*',
-          },
-        body: JSON.stringify({
-            sort: {
-                type: "date"
-            }
-        })
-    })
-    console.log("0", res)
-    const projects = await res.json()
-
-    return {
-        props: {
-            projects
-        }
-    }
 }
 
 export default ProjectsPage

@@ -35,7 +35,7 @@ export const projectData = [
         description: "The best way to view stock market statistics from the comfort of the Python terminal.",
         body: "asdfoidsfsdfhjksdjkhfsdjhkfhjdks",
         date: { month: "April", year: 2020 },
-        url: "https://replit.com/@Roar123/Stock-Market",
+        url: "https://pongy.roar123.repl.co/",
         languages: ["Python"],
         thumbnail: "/images/hangman.png"
     },
@@ -45,7 +45,7 @@ export const projectData = [
         description: "The best way to view stock market statistics from the comfort of the Python terminal.",
         body: "asdfoidsfsdfhjksdjkhfsdjhkfhjdks",
         date: { month: "March", year: 2020 },
-        url: "https://replit.com/@Roar123/Stock-Market",
+        url: "https://pongy.roar123.repl.co/",
         languages: ["Python"],
         thumbnail: "/images/mastermind.png"
     }, 
