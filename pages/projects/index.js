@@ -17,7 +17,7 @@ const ProjectsPage = props => {
 
     return (
         <>
-            <Layout page = "Projects">
+            <Layout page = "Projects" fullWidth>
                 <div className = "projects">
                     {visibleProjects.slice(0, length).map(project => (
                         <ProjectCard project = {project} key = {project.id} />
@@ -33,29 +33,41 @@ const ProjectsPage = props => {
                 .projects {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
+                    max-width: 1000px;
+                    margin: auto;
                 }
 
                 .projects-title {
                     text-align: center;
                 }
 
+                @media only screen and (min-width: 1700px) {
+                    .projects {
+                        grid-template-columns: repeat(6, 1fr);
+                        max-width: 80vw;
+                    }
+                }
+                
                 @media only screen and (max-width: 950px) {
                     .projects {
-                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+
+                @media only screen and (max-width: 950px) {
+                    .projects {
                         grid-template-columns: repeat(3, 1fr);
                     }
                 }
 
                 @media only screen and (max-width: 700px) {
                     .projects {
-                        display: grid;
                         grid-template-columns: repeat(2, 1fr);
                     }
                 }
 
                 @media only screen and (max-width: 450px) {
                     .projects {
-                        display: grid;
                         grid-template-columns: repeat(1, 1fr);
                     }
                 }

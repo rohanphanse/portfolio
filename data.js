@@ -144,7 +144,7 @@ export const projectData = [
         description: "That's right, this very portfolio that you're looking at.",
         date: { month: "May", year: 2021 },
         url: "https://portfolio.roar123.repl.co",
-        languages: ["Next.js", "JavaScript"],
+        languages: ["Next.js", "React", "JavaScript"],
         thumbnail: "/images/portfolio.png"
     },
     {

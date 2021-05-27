@@ -13,9 +13,7 @@ const Layout = props => {
             <Footer />
             <style jsx>{`
                 .content {
-                    max-width: 1000px;
                     padding: 40px 20px;
-                    margin: auto;
                 }
             `}</style>
         </>
