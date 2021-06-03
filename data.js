@@ -51,7 +51,7 @@ export const projectData = [
     {
         id: "cube-timer",
         title: "Cube Timer",
-        description: "For all of you Rubix Cubers out there, this is the timer you have been waiting for!",
+        description: "For all of you Rubik's Cubers out there, this is the timer you have been waiting for!",
         date: { month: "February", year: 2021 },
         url: "https://cube-timer.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
@@ -134,7 +134,7 @@ export const projectData = [
         title: "Binary Converter",
         description: "Convert binary and decimal numbers with this unique command-line interface.",
         date: { month: "November", year: 2020 },
-        url: "https://contact-list.roar123.repl.co/",
+        url: "https://binary.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
         thumbnail: "/images/binary-converter.png"
     },
@@ -155,5 +155,14 @@ export const projectData = [
         url: "https://snap.berkeley.edu/snap/snap.html#present:Username=95038112&ProjectName=Disease%20Spread",
         languages: ["Snap"],
         thumbnail: "/images/disease-spread.png"
+    },
+    {
+        id: "color-search",
+        title: "Color Search",
+        description: "An application which allows you to search and discover new colors from the terminal.",
+        date: { month: "June", year: 2020 },
+        url: "https://replit.com/@Roar123/Color-Search?lite=true",
+        languages: ["Python"],
+        thumbnail: "/images/color-search.png"
     },
 ]

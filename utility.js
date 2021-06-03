@@ -8,7 +8,12 @@ Utility.monthToNumber = (month) => {
 Utility.sortByDate = (projectData, options = {}) => {
     let data = projectData.sort((a, b) => {
         if (a.date.year === b.date.year) {
-            return Utility.monthToNumber(a.date.month) - Utility.monthToNumber(b.date.month)
+            const month_difference = Utility.monthToNumber(a.date.month) - Utility.monthToNumber(b.date.month)
+            if (month_difference === 0) {
+                return b.title.localeCompare(a.title)
+            } else {
+                return month_difference
+            }
         } else {
             return a.date.year - b.date.year
         }
