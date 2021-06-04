@@ -1,0 +1,36 @@
+<svg width = "800" height = "500" xmlns = "http://www.w3.org/2000/svg">
+    <foreignObject width = "800" height = "500">
+        <div xmlns = "http://www.w3.org/1999/xhtml">
+            <div class = "wrapper-container">
+                <div class = "wrapper">
+                    <iframe class = "frame" src = "https://portfolio.roar123.repl.co" />
+                </div>
+            </div>
+        </div>
+    </foreignObject>
+    <style>
+        .wrapper-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            --width: 800px;
+            --height: 500px;
+            --scale: 0.75;
+        }
+
+        .wrapper {
+            width: var(--width); 
+            height: var(--height); 
+        }
+
+        .frame {
+            width: calc(var(--width) / var(--scale));
+            height: calc(var(--height) / var(--scale));
+            background-color: white;
+            transform: scale(var(--scale));
+            transform-origin: 0 0;
+            border: none;
+        }
+    </style>
+</svg>

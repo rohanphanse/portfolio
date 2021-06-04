@@ -38,7 +38,6 @@ const ProjectPage = ({ project }) => {
 
                             --width: 800px;
                             --height: 500px;
-                            --original-scale: "";
                             --scale: ${0.75};
                         }
 
