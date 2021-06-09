@@ -1,6 +1,6 @@
 import ProjectCard from "../../components/ProjectCard"
 import Layout from "../../components/Layout"
-import { projectData } from "../../data"
+import { projectData } from "../../data/projects"
 import Utility from "../../utility"
 import { useState } from "react"
 

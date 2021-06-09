@@ -1,10 +1,12 @@
 import Layout from "../../components/Layout" 
-import { projectData } from "../../data"
+import { projectData } from "../../data/projects"
 import Utility from "../../utility"
 import Error from "next/error"
 import LanguageTag from "../../components/LanguageTag"
+import { readFileSync } from "fs"
+import Markdown from "react-markdown"
 
-const ProjectPage = ({ project }) => {
+const ProjectPage = ({ project, body }) => {
     return (
         <>
             {project === "Error" ?
@@ -28,6 +30,9 @@ const ProjectPage = ({ project }) => {
                             <div className = "wrapper">
                                 <iframe className = "frame" src = {project.url} />
                             </div>
+                        </div>
+                        <div className = "markdown">
+                            <Markdown children = {body} />
                         </div>
                     </Layout>
                     <style jsx>{`
@@ -99,10 +104,20 @@ const ProjectPage = ({ project }) => {
 export const getStaticProps = async (context) => {
     const id = context.params.id
     const project = Utility.getProject(projectData, id)
+    let body = null
+
+    try {
+        body = readFileSync(`${process.cwd()}/data/projects/${id}.md`, "utf8")
+        console.log("Body", body)
+    } catch (error) {
+        body = "Error"
+        console.log(error)
+    }
 
     return {
         props: {
-            project
+            project,
+            body
         }
     }
 }
