@@ -50,6 +50,12 @@ const Title = props => (
                 width: 74px;
                 margin: 3px;
             }
+
+            @media only screen and (max-width: 800px) {
+                   .titleText {
+                       font-size: 1.5rem;
+                   }
+            }
         `}</style>
     </>
 

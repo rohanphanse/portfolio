@@ -1,6 +1,6 @@
 import NavLink from "./NavLink"
 import NavDropdown from "./NavDropdown"
-import Search from "../Search"
+import NavSearch from "./NavSearch"
 import { useState, useEffect } from "react"
 
 const NavBar = props => {
@@ -31,7 +31,7 @@ const NavBar = props => {
                         <NavLink page = "/blog" name = "Blog" />
                         <NavLink page = "/contact" name = "Contact" />
                         <NavDropdown />
-                        <Search />
+                        <NavSearch />
                     </div>
                 </div>
             </div>
@@ -76,10 +76,12 @@ const NavBar = props => {
                             0 16px 16px rgba(0,0,0,0.11);
                 }
 
-                @media only screen and (max-width: 1120px) {
+                @media only screen and (max-width: 1130px) {
                     .navBar {
                         width: 100vw;
                         border-radius: 0;
+                        padding: 0.3rem 1rem;
+                        margin: 0;
                     }
                 }
             `}</style>

@@ -2,22 +2,50 @@ import ProjectCard from "../../components/ProjectCard"
 import Layout from "../../components/Layout"
 import { projectData } from "../../data/projects"
 import Utility from "../../utility"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Search from "../../components/ProjectSearch"
 
 const ProjectsPage = props => {
+    // Projects
     const projects = Utility.sortByDate(projectData)
     const [visibleProjects, updateProjects] = useState(projects)
     const [length, updateLength] = useState(8)
 
+    // Query
+    const [query, updateQuery] = useState("")
+    const [category, updateCategory] = useState("All")
+
     function showMore() {
         updateLength(
-            visibleProjects.length - length >= 8 ? length + 8 : visibleProjects.length
+            projects.length - length >= 8 ? length + 8 : projects.length
         )
     }
 
+    useEffect(() => {
+        updateProjects(
+            projects.filter(project => {
+                let values = []
+                if (category === "All") {
+                    values = [project.title, project.date.year, project.date.month, ...project.languages]
+                } else if (category === "Date") {
+                    value = [project.date.year, project.date.month]
+                } else if (category === "Title") {
+                    value = [project.title]
+                } else if (category === "Language") {
+                    value = [...project.languages]
+                }
+                return values.filter(value => {
+                    return value.toString().toLowerCase().includes(query.toLowerCase())
+                }).length
+            })
+        )
+        console.log(visibleProjects)
+    }, [query])
+        
     return (
         <>
             <Layout page = "Projects" fullWidth>
+                <Search updateQuery = {value => updateQuery(value)} />
                 <div className = "projects">
                     {visibleProjects.slice(0, length).map(project => (
                         <ProjectCard project = {project} key = {project.id} />
