@@ -166,3 +166,9 @@ export const projectData = [
         thumbnail: "/images/color-search.png"
     },
 ]
+
+export const projectDataById = {}
+
+for (const project of projectData) {
+    projectDataById[project.id] = project
+}

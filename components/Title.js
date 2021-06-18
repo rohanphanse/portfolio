@@ -21,6 +21,7 @@ const Title = props => (
                 justify-content: center;
                 align-items: center;
                 margin: 1.2rem 0;
+                --image-width: 80px;
             }
 
             .titleText {
@@ -42,18 +43,22 @@ const Title = props => (
             }
 
             .titleImg {
-                width: 80px;
+                width: var(--image-width);
                 transition-duration: 0.1s;
             }
 
             .titleImg:active {
-                width: 74px;
+                width: calc(var(--image-width) - 6px);
                 margin: 3px;
             }
 
             @media only screen and (max-width: 800px) {
                    .titleText {
                        font-size: 1.5rem;
+                   }
+
+                   .titleImg {
+                       --image-width: 50px;
                    }
             }
         `}</style>

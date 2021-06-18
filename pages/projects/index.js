@@ -1,6 +1,6 @@
 import ProjectCard from "../../components/ProjectCard"
 import Layout from "../../components/Layout"
-import { projectData } from "../../data/projects"
+import { projectData, projectDataById } from "../../data/projects"
 import Utility from "../../utility"
 import { useState, useEffect } from "react"
 import Search from "../../components/ProjectSearch"
@@ -12,7 +12,7 @@ const ProjectsPage = props => {
     const [length, updateLength] = useState(8)
 
     // Query
-    const [query, updateQuery] = useState("")
+    const [query, updateQuery] = useState([])
     const [category, updateCategory] = useState("All")
 
     function showMore() {
@@ -22,30 +22,50 @@ const ProjectsPage = props => {
     }
 
     useEffect(() => {
-        updateProjects(
-            projects.filter(project => {
-                let values = []
-                if (category === "All") {
-                    values = [project.title, project.date.year, project.date.month, ...project.languages]
-                } else if (category === "Date") {
-                    value = [project.date.year, project.date.month]
-                } else if (category === "Title") {
-                    value = [project.title]
-                } else if (category === "Language") {
-                    value = [...project.languages]
+        if (query.length) {
+            const searched_projects_count = {}
+            for (const q of query) {
+                projects.filter(project => {
+                    let values = []
+                    if (category === "All") {
+                        values = [project.title, project.date.year, project.date.month, ...project.languages]
+                    } else if (category === "Date") {
+                        values = [project.date.year, project.date.month]
+                    } else if (category === "Title") {
+                        values = [project.title]
+                    } else if (category === "Language") {
+                        values = [...project.languages]
+                    }
+
+                    const contains_query = values.filter(value => {
+                        return value.toString().toLowerCase().includes(q.toLowerCase())
+                    }).length
+
+                    if (contains_query) {
+                        searched_projects_count[project.id] = searched_projects_count[project.id] ? searched_projects_count[project.id] + 1 : 1
+                    }
+                })
+            }
+
+            const searched_projects = []
+            for (const id in searched_projects_count) {
+                if (searched_projects_count[id] === query.length) {
+                    searched_projects.push(projectDataById[id])
                 }
-                return values.filter(value => {
-                    return value.toString().toLowerCase().includes(query.toLowerCase())
-                }).length
-            })
-        )
-        console.log(visibleProjects)
-    }, [query])
+            }
+            updateProjects(searched_projects)
+        }
+    }, [query, category])
         
     return (
         <>
-            <Layout page = "Projects" fullWidth>
-                <Search updateQuery = {value => updateQuery(value)} />
+            <Layout page = "Projects">
+                <div className = "search-container">
+                    <Search updateQuery = {value => {
+                        const value_list = value.trim().split(" ")
+                        updateQuery(value_list.length === 1 ? value_list : value_list.filter(v => v))
+                    }} updateCategory = {value => updateCategory(value)} />
+                </div>
                 <div className = "projects">
                     {visibleProjects.slice(0, length).map(project => (
                         <ProjectCard project = {project} key = {project.id} />
@@ -125,6 +145,12 @@ const ProjectsPage = props => {
                                 0 4px 8px rgba(0,0,0,0.07), 
                                 0 8px 16px rgba(0,0,0,0.07),
                                 0 16px 32px rgba(0,0,0,0.07);
+                }
+
+                .search-container {
+                    display: flex;
+                    flex-dirextion: row;
+                    justify-content: center;
                 }
             `}</style>
         </>
