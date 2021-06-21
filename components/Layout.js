@@ -2,8 +2,14 @@ import Title from "./Title"
 import NavBar from "./navbar/NavBar"
 import Metadata from "./Metadata"
 import Footer from "./footer/Footer"
+import Prism from "prismjs"
+import { useEffect } from "react"
 
 const Layout = props => {
+    useEffect(() => {
+        Prism.highlightAll()
+    }, [])
+
     return (
         <>
             <Metadata title = {props.page} />

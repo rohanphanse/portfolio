@@ -29,15 +29,6 @@ But as the class progressed, I surprised by how much I was getting out of it. Wh
 
 Now back to the showcase. It was 
 
-<pre><code class="language-javascript">const hello = "hi"
-
-function hi() {
-    console.log(hello)
-}
-</code></pre>
-
-This is an image in HTML: <code class = "language-html">&lt;img src = "" alt = "" /></code>
-
 <div class = "wrapper-container">
     <div class = "wrapper">
         <iframe src = "https://www.youtube.com/embed/RoyrVYpfrsk" class = "frame"></iframe>
