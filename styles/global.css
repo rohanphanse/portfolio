@@ -95,6 +95,10 @@ input {
     margin: 20px 0;
 }
 
+.markdown pre {
+    margin: 20px 0;
+}
+
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
