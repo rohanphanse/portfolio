@@ -7,6 +7,7 @@ const App = ({ Component, pageProps }) => {
         <>
             <Metadata></Metadata>
             <Component {...pageProps}></Component>
+            <script src="/prism/prism.js"></script>
         </>
     )
 }
