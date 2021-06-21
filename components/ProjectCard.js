@@ -29,6 +29,7 @@ const ProjectCard = ({ project }) => {
                     text-decoration: none;
                     margin: 10px;
                     background-color: var(--medium);
+                    color: var(--text);
                 }
 
                 .card:hover {

@@ -5,6 +5,7 @@ import Error from "next/error"
 import LanguageTag from "../../components/LanguageTag"
 import { readFileSync } from "fs"
 import Markdown from "react-markdown"
+import rehypeRaw from "rehype-raw"
 
 const ProjectPage = ({ project, body }) => {
     return (
@@ -31,8 +32,12 @@ const ProjectPage = ({ project, body }) => {
                                 <iframe className = "frame" src = {project.url} />
                             </div>
                         </div>
-                        <div className = "markdown">
-                            <Markdown children = {body} />
+                        <div className = "body-container">
+                            <div className = "body">
+                                <div className = "markdown">
+                                    <Markdown children = {body} rehypePlugins = {[rehypeRaw]} />
+                                </div>
+                            </div>
                         </div>
                     </Layout>
                     <style jsx>{`
@@ -93,6 +98,31 @@ const ProjectPage = ({ project, body }) => {
                             color: var(--accent);
                             margin-left: 12px;
                             font-size: 1.5rem;
+                        }
+
+                        .body-container {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                        }
+
+                        .body {
+                            width: 800px;
+                            margin: 20px 0;
+                        }
+
+                        @media only screen and (max-width: 800px) {
+                            .wrapper-container {
+                                --width: 100%;
+                                --height: 450px;
+                                --scale: 0.6;
+                                padding: 0 50px;
+                            }
+
+                            .body {
+                                width: 100%;
+                                padding: 0 50px;
+                            }
                         }
                     `}</style>
                 </>

@@ -1,5 +1,5 @@
 import Metadata from "../components/Metadata.js"
-import "../styles/globals.css"
+import "../styles/global.css"
 
 
 const App = ({ Component, pageProps }) => {

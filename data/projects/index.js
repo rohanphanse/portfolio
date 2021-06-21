@@ -143,7 +143,7 @@ export const projectData = [
         title: "Portfolio",
         description: "That's right, this very portfolio that you're looking at.",
         date: { month: "May", year: 2021 },
-        url: "https://portfolio.roar123.repl.co",
+        url: "https://33j58.sse.codesandbox.io/",
         languages: ["Next.js", "React", "JavaScript"],
         thumbnail: "/images/portfolio.png"
     },
