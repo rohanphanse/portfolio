@@ -1,7 +1,7 @@
 import Metadata from "../components/Metadata.js"
 
-import "../styles/global.css"
 import "prismjs/themes/prism-tomorrow.css"
+import "../styles/global.css"
 
 const App = ({ Component, pageProps }) => {
     return (
