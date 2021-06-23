@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout" 
-import { projectData } from "../../data/projects"
+import { projectData, projectDataById } from "../../data/projects"
 import Utility from "../../utility"
 import Error from "next/error"
 import LanguageTag from "../../components/LanguageTag"
@@ -133,7 +133,7 @@ const ProjectPage = ({ project, body }) => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id
-    const project = Utility.getProject(projectData, id)
+    const project = projectDataById[id] || "Error"
     let body = null
 
     try {

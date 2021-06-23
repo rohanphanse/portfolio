@@ -39,13 +39,4 @@ Utility.languageTags = {
     "Next.js": { color: "white", textColor: "black"  },
 }
 
-Utility.getProject = (projectData, id) => {
-    const filtered = projectData.filter(project => project.id === id)
-    if (filtered.length) {
-        return filtered[0]
-    } else {
-        return "Error"
-    }
-}
-
 export default Utility
