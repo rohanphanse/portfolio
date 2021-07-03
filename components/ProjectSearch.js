@@ -12,9 +12,6 @@ const ProjectSearch = props => {
                     <div className = "select-arrow fas fa-angle-down"></div>
                 </div>
                 <input type="text" className="search-bar" onChange = {event => props.updateQuery(event.target.value)} />
-                {/*<div className="search-button">
-                    <i className="fas fa-search" />
-                </div>*/}
             </div>
             <style jsx>{`
                 .search-container {

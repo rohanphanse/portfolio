@@ -17,12 +17,23 @@ const ProjectsPage = props => {
 
     function showMore() {
         updateLength(
-            projects.length - length >= 8 ? length + 8 : projects.length
+            visibleProjects.length - length >= 8 ? length + 8 : visibleProjects.length
         )
+    }
+
+    function updateMaxLength() {
+        updateLength(
+            visibleProjects.length < length ? visibleProjects.length : length
+        )
+        console.log("Length", length, visibleProjects.length)
     }
 
     useEffect(() => {
         if (query.length) {
+            // So show more button renders correctly
+            // Still a minor bug
+            updateMaxLength()
+       
             const searched_projects_count = {}
             for (const q of query) {
                 projects.filter(project => {
@@ -151,6 +162,12 @@ const ProjectsPage = props => {
                     display: flex;
                     flex-dirextion: row;
                     justify-content: center;
+                }
+
+                .page-title {
+                    font-size: 2rem;
+                    font-weight: 600;
+                    text-align: center;
                 }
             `}</style>
         </>

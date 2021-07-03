@@ -3,7 +3,7 @@
 :root {
     --background: #212131;
     --primary: #17171E;
-    --text-bright: #e4e4e4;
+    --text-bright: rgb(230, 230, 230);
     --text-light: #D3D3D3;
     --text: white;
     --text-dark: black;
@@ -38,10 +38,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 img {
     width: 100%;
     height: 100%;
@@ -64,7 +60,11 @@ input {
 
 .markdown p {
     margin: 5px 0;
-    color: var(--text-light);
+    color: var(--text-bright);
+}
+
+.markdown strong {
+    color: var(--text) !important;
 }
 
 .markdown .wrapper-container {

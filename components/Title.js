@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-const Title = props => (
+const Title = () => (
     <>
         <div className = "title">
             <Link href = "/">
@@ -8,7 +8,7 @@ const Title = props => (
                     <img src = "/images/logo.png" alt = "Logo" />
                 </a>
             </Link>
-            <Link href = "/">
+            <Link href = {""}>
                 <a className = "titleText">Rohan Phanse</a>
             </Link>
             

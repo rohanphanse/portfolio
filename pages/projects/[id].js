@@ -6,6 +6,7 @@ import LanguageTag from "../../components/LanguageTag"
 import { readFileSync } from "fs"
 import Markdown from "react-markdown"
 import rehypeRaw from "rehype-raw"
+import Link from "next/link"
 
 const ProjectPage = ({ project, body }) => {
     return (
@@ -38,6 +39,11 @@ const ProjectPage = ({ project, body }) => {
                                     <Markdown children = {body} rehypePlugins = {[rehypeRaw]} />
                                 </div>
                             </div>
+                        </div>
+                        <div className="center">
+                            <Link href = "/projects">
+                                <a className = "back-to-projects">Back To All Projects</a>
+                            </Link>
                         </div>
                     </Layout>
                     <style jsx>{`
@@ -81,7 +87,7 @@ const ProjectPage = ({ project, body }) => {
                         }
 
                         .date {
-                            font-size: 0.9rem;
+                            font-size: 1.1rem;
                             color: var(--text-light);
                             margin-bottom: 12px;
                             text-align: center;
@@ -123,6 +129,33 @@ const ProjectPage = ({ project, body }) => {
                                 width: 100%;
                                 padding: 0 50px;
                             }
+                        }
+
+                        .center {
+                            display: flex;
+                            justify-content: center;
+                        }
+        
+                        .back-to-projects {
+                            color: var(--text);
+                            padding: 10px 15px;
+                            border-radius: 4px;
+                            background-color: var(--medium);
+                            margin-top: 20px;
+                            cursor: pointer;
+                            transition-duration: 0.2s;
+                        }
+        
+                        .back-to-projects:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 
+                                        0 -2px 2px rgba(0,0,0,0.07), 
+                                        0 -1px 1px rgba(0,0,0,0.07), 
+                                        0 1px 2px rgba(0,0,0,0.07), 
+                                        0 2px 4px rgba(0,0,0,0.07), 
+                                        0 4px 8px rgba(0,0,0,0.07), 
+                                        0 8px 16px rgba(0,0,0,0.07),
+                                        0 16px 32px rgba(0,0,0,0.07);
                         }
                     `}</style>
                 </>
