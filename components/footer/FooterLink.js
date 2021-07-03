@@ -1,25 +1,23 @@
 import Link from "next/link"
 
-const FooterLink = props => (
+const FooterLink = (props) => (
     <>
-        {props.static ?
-            <a href = {props.page} target = "_blank" className = "footerLink">
+        {props.static ? (
+            <a href={props.page} target="_blank" className="footerLink">
                 {props.children}
-            </a> 
-        :
-            <Link href = {props.page}>
-                <a className = "footerLink">
-                    {props.children}
-                </a>
+            </a>
+        ) : (
+            <Link href={props.page}>
+                <a className="footerLink">{props.children}</a>
             </Link>
-        }
+        )}
         <style jsx>{`
             .footerLink {
                 background-color: inherit;
                 font-size: 1rem;
                 padding: 5px 0;
                 transition-duration: 100ms;
-                color: #A3A3A3;
+                color: #a3a3a3;
                 text-decoration: none;
             }
 

@@ -1,25 +1,50 @@
 import { useState } from "react"
 import NavDropdownLink from "./NavDropdownLink"
 
-const NavDropdown = props => {
+const NavDropdown = (props) => {
     const [show, toggleShow] = useState(false)
     const [count, counter] = useState(0)
 
     return (
         <>
-            <div className = "navDropdown">
-                <div className = "navDropdownBtn" onClick={() => {toggleShow(!show); counter(count + 1)}}>
+            <div className="navDropdown">
+                <div
+                    className="navDropdownBtn"
+                    onClick={() => {
+                        toggleShow(!show)
+                        counter(count + 1)
+                    }}
+                >
                     More
-                    <i id = "icon" className = {count ? (show ? "fas fa-chevron-down rotate" : "fas fa-chevron-down rotateBack") : "fas fa-chevron-down"}></i>
+                    <i
+                        id="icon"
+                        className={
+                            count
+                                ? show
+                                    ? "fas fa-chevron-down rotate"
+                                    : "fas fa-chevron-down rotateBack"
+                                : "fas fa-chevron-down"
+                        }
+                    ></i>
                 </div>
 
-                <div className = "navDropdownContent">
-                    <NavDropdownLink page = "https://repl.it/@Roar123" img = "replit.png"
-                    static>Repl.it</NavDropdownLink>
-                    <NavDropdownLink page = "https://github.com/rohanphanse" icon = "fab fa-github" static>Github</NavDropdownLink>
-                    <NavDropdownLink page = "/">More</NavDropdownLink>
+                <div className="navDropdownContent">
+                    <NavDropdownLink
+                        page="https://repl.it/@Roar123"
+                        img="replit.png"
+                        static
+                    >
+                        Repl.it
+                    </NavDropdownLink>
+                    <NavDropdownLink
+                        page="https://github.com/rohanphanse"
+                        icon="fab fa-github"
+                        static
+                    >
+                        Github
+                    </NavDropdownLink>
+                    <NavDropdownLink page="/">More</NavDropdownLink>
                 </div>
-                
             </div>
             <style jsx>{`
                 .navDropdownBtn {
@@ -45,9 +70,9 @@ const NavDropdown = props => {
                 .navDropdownBtn:active {
                     transform: scale(0.9);
                     -webkit-user-select: none;
-                    -moz-user-select: none; 
-                    -ms-user-select: none;     
-                    user-select: none; 
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
                 }
 
                 #icon {
@@ -74,32 +99,44 @@ const NavDropdown = props => {
                     background-color: var(--primary);
                     min-width: 160px;
                     border-radius: 12px;
-                    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
-                            0 2px 2px rgba(0,0,0,0.11), 
-                            0 4px 4px rgba(0,0,0,0.11), 
-                            0 8px 8px rgba(0,0,0,0.11),
-                            0 16px 16px rgba(0,0,0,0.11);
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11),
+                        0 2px 2px rgba(0, 0, 0, 0.11),
+                        0 4px 4px rgba(0, 0, 0, 0.11),
+                        0 8px 8px rgba(0, 0, 0, 0.11),
+                        0 16px 16px rgba(0, 0, 0, 0.11);
                 }
 
                 @keyframes rotate {
-                    from {transform: rotate(0deg);}
-                    to {transform: rotate(180deg);}
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(180deg);
+                    }
                 }
 
                 @keyframes rotateBack {
-                    from {transform: rotate(180deg);}
-                    to {transform: rotate(360deg);}
+                    from {
+                        transform: rotate(180deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
                 }
 
                 @keyframes slideIn {
-                    from {opacity: 0; margin-top: 50px;}
-                    to {opacity: 1; margin-top: 20px;}
+                    from {
+                        opacity: 0;
+                        margin-top: 50px;
+                    }
+                    to {
+                        opacity: 1;
+                        margin-top: 20px;
+                    }
                 }
-
             `}</style>
         </>
     )
 }
-
 
 export default NavDropdown

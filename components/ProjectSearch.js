@@ -1,17 +1,26 @@
-const ProjectSearch = props => { 
+const ProjectSearch = (props) => {
     return (
         <>
             <div className="search-container">
-                <div className = "search-categories-container">
-                    <select className = "search-categories" onChange = {event => props.updateCategory(event.target.value)}>
-                        <option value = "All">All</option>
-                        <option value = "Title">Title</option>
-                        <option value = "Date">Date</option>
-                        <option value = "Language">Language</option>
+                <div className="search-categories-container">
+                    <select
+                        className="search-categories"
+                        onChange={(event) =>
+                            props.updateCategory(event.target.value)
+                        }
+                    >
+                        <option value="All">All</option>
+                        <option value="Title">Title</option>
+                        <option value="Date">Date</option>
+                        <option value="Language">Language</option>
                     </select>
-                    <div className = "select-arrow fas fa-angle-down"></div>
+                    <div className="select-arrow fas fa-angle-down"></div>
                 </div>
-                <input type="text" className="search-bar" onChange = {event => props.updateQuery(event.target.value)} />
+                <input
+                    type="text"
+                    className="search-bar"
+                    onChange={(event) => props.updateQuery(event.target.value)}
+                />
             </div>
             <style jsx>{`
                 .search-container {
@@ -21,7 +30,7 @@ const ProjectSearch = props => {
                     flex-direction: row;
                     --height: 34.5px;
                 }
-                
+
                 .search-bar {
                     width: 100%;
                     border-radius: 0 8px 8px 0;
@@ -65,7 +74,7 @@ const ProjectSearch = props => {
                     font-size: 1.15rem;
                     color: var(--text-light);
                 }
-      `}</style>
+            `}</style>
         </>
     )
 }

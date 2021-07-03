@@ -1,38 +1,42 @@
 import Link from "next/link"
 
-const NavDropdownLink = props => (
+const NavDropdownLink = (props) => (
     <>
-        {props.static ?
-            <a href = {props.page} target = "_blank" className = {props.classes || "navDropdownLink"}>
+        {props.static ? (
+            <a
+                href={props.page}
+                target="_blank"
+                className={props.classes || "navDropdownLink"}
+            >
                 {props.children}
-                {props.icon &&
-                    <div className = "icon">
-                        <i className = {props.icon}></i>
+                {props.icon && (
+                    <div className="icon">
+                        <i className={props.icon}></i>
                     </div>
-                }
-                {props.img &&
-                    <div className = "img">
-                        <img src = {"/images/" + props.img} />
+                )}
+                {props.img && (
+                    <div className="img">
+                        <img src={"/images/" + props.img} />
                     </div>
-                }
+                )}
             </a>
-        :
-            <Link href = {props.page}>
-                <a className = {props.classes || "navDropdownLink"}>
+        ) : (
+            <Link href={props.page}>
+                <a className={props.classes || "navDropdownLink"}>
                     {props.children}
-                    {props.icon &&
-                        <div className = "icon">
-                            <i className = {props.icon}></i>
+                    {props.icon && (
+                        <div className="icon">
+                            <i className={props.icon}></i>
                         </div>
-                    }
-                    {props.img &&
-                        <div className = "img">
-                            <img src = {"/images/" + props.img} />
+                    )}
+                    {props.img && (
+                        <div className="img">
+                            <img src={"/images/" + props.img} />
                         </div>
-                    }
+                    )}
                 </a>
             </Link>
-        }
+        )}
         <style jsx>{`
             .navDropdownLink {
                 font-size: 0.9rem;
@@ -76,7 +80,7 @@ const NavDropdownLink = props => (
             .last {
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius: 10px;
-            }    
+            }
         `}</style>
     </>
 )

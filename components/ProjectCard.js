@@ -5,17 +5,19 @@ import Link from "next/link"
 const ProjectCard = ({ project }) => {
     return (
         <>
-            <Link href = {`/projects/${project.id}`}>
-                <a className = "card">
-                    <div className = "title">{project.title}</div>
-                    <div className = "date">{Utility.formatDate(project.date)}</div>
-                    <img src = {project.thumbnail} className = "thumbnail" />
-                    <div className = "languages">
-                        {project.languages.map(language => (
-                            <LanguageTag language = {language} key = {language} />
+            <Link href={`/projects/${project.id}`}>
+                <a className="card">
+                    <div className="title">{project.title}</div>
+                    <div className="date">
+                        {Utility.formatDate(project.date)}
+                    </div>
+                    <img src={project.thumbnail} className="thumbnail" />
+                    <div className="languages">
+                        {project.languages.map((language) => (
+                            <LanguageTag language={language} key={language} />
                         ))}
                     </div>
-                    <div className = "description">{project.description}</div>
+                    <div className="description">{project.description}</div>
                 </a>
             </Link>
             <style jsx>{`
@@ -34,15 +36,14 @@ const ProjectCard = ({ project }) => {
 
                 .card:hover {
                     transform: translateY(-2px);
-                    box-shadow: 
-                                0 -2px 2px rgba(0,0,0,0.07), 
-                                0 -1px 1px rgba(0,0,0,0.07), 
-                                0 1px 2px rgba(0,0,0,0.07), 
-                                0 2px 4px rgba(0,0,0,0.07), 
-                                0 4px 8px rgba(0,0,0,0.07), 
-                                0 8px 16px rgba(0,0,0,0.07),
-                                0 16px 32px rgba(0,0,0,0.07), 
-                                0 32px 64px rgba(0,0,0,0.07);
+                    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.07),
+                        0 -1px 1px rgba(0, 0, 0, 0.07),
+                        0 1px 2px rgba(0, 0, 0, 0.07),
+                        0 2px 4px rgba(0, 0, 0, 0.07),
+                        0 4px 8px rgba(0, 0, 0, 0.07),
+                        0 8px 16px rgba(0, 0, 0, 0.07),
+                        0 16px 32px rgba(0, 0, 0, 0.07),
+                        0 32px 64px rgba(0, 0, 0, 0.07);
                 }
 
                 .thumbnail {

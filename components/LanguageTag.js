@@ -4,7 +4,7 @@ const LanguageTag = ({ language }) => {
     const { color, textColor } = Utility.languageTags[language]
     return (
         <>
-            <div className = "tag">{language}</div>
+            <div className="tag">{language}</div>
             <style jsx>{`
                 .tag {
                     color: var(--text-light);

@@ -1,11 +1,11 @@
-const FooterInfo = props => (
+const FooterInfo = (props) => (
     <>
-        <div className = "footerInfo">
-            <div className = "footerLogo">
-                <img className = "footerImg" src = "/images/logo.png" alt = "logo" />
+        <div className="footerInfo">
+            <div className="footerLogo">
+                <img className="footerImg" src="/images/logo.png" alt="logo" />
                 Rohan Phanse
             </div>
-            <div className = "footerLegal">
+            <div className="footerLegal">
                 Copyright © 2021 Rohan Phanse. All rights reserved.
             </div>
         </div>
@@ -34,9 +34,8 @@ const FooterInfo = props => (
             .footerLegal {
                 margin-top: 6px;
                 font-size: 0.85rem;
-                color: #A3A3A3;
+                color: #a3a3a3;
             }
-
         `}</style>
     </>
 )

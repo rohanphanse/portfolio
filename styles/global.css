@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 :root {
     --background: #212131;
-    --primary: #17171E;
+    --primary: #17171e;
     --text-bright: rgb(230, 230, 230);
-    --text-light: #D3D3D3;
+    --text-light: #d3d3d3;
     --text: white;
     --text-dark: black;
     --accent: #fa48fa;
@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     background-color: var(--background);
     font-size: 1rem;
     color: var(--text);
@@ -79,8 +79,8 @@ input {
 }
 
 .markdown .wrapper {
-    width: var(--width); 
-    height: var(--height); 
+    width: var(--width);
+    height: var(--height);
 }
 
 .markdown .frame {
@@ -100,10 +100,10 @@ input {
 }
 
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 select::-ms-expand {
-  display: none;
+    display: none;
 }

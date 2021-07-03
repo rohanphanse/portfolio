@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 const ContactPage = () => {
     return (
         <>
-            <Layout page = "Contact">
+            <Layout page="Contact">
                 <h1>Contact</h1>
             </Layout>
         </>

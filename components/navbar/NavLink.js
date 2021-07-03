@@ -1,13 +1,19 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-const NavLink = props => {
+const NavLink = (props) => {
     const router = useRouter()
 
     return (
         <>
-            <Link href = {props.page || "/"} >
-                <a className = {router.pathname === props.page ? "navLink active" : "navLink"}>
+            <Link href={props.page || "/"}>
+                <a
+                    className={
+                        router.pathname === props.page
+                            ? "navLink active"
+                            : "navLink"
+                    }
+                >
                     {props.name}
                 </a>
             </Link>
@@ -34,7 +40,11 @@ const NavLink = props => {
 
                 .active {
                     color: var(--accent);
-                    background: linear-gradient(to right, var(--accent), var(--accent-dark));
+                    background: linear-gradient(
+                        to right,
+                        var(--accent),
+                        var(--accent-dark)
+                    );
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }

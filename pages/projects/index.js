@@ -5,7 +5,7 @@ import Utility from "../../utility"
 import { useState, useEffect } from "react"
 import Search from "../../components/ProjectSearch"
 
-const ProjectsPage = props => {
+const ProjectsPage = (props) => {
     // Projects
     const projects = Utility.sortByDate(projectData)
     const [visibleProjects, updateProjects] = useState(projects)
@@ -15,31 +15,19 @@ const ProjectsPage = props => {
     const [query, updateQuery] = useState([])
     const [category, updateCategory] = useState("All")
 
-    function showMore() {
-        updateLength(
-            visibleProjects.length - length >= 8 ? length + 8 : visibleProjects.length
-        )
-    }
-
-    function updateMaxLength() {
-        updateLength(
-            visibleProjects.length < length ? visibleProjects.length : length
-        )
-        console.log("Length", length, visibleProjects.length)
-    }
-
     useEffect(() => {
         if (query.length) {
-            // So show more button renders correctly
-            // Still a minor bug
-            updateMaxLength()
-       
             const searched_projects_count = {}
             for (const q of query) {
-                projects.filter(project => {
+                projects.filter((project) => {
                     let values = []
                     if (category === "All") {
-                        values = [project.title, project.date.year, project.date.month, ...project.languages]
+                        values = [
+                            project.title,
+                            project.date.year,
+                            project.date.month,
+                            ...project.languages
+                        ]
                     } else if (category === "Date") {
                         values = [project.date.year, project.date.month]
                     } else if (category === "Title") {
@@ -48,12 +36,18 @@ const ProjectsPage = props => {
                         values = [...project.languages]
                     }
 
-                    const contains_query = values.filter(value => {
-                        return value.toString().toLowerCase().includes(q.toLowerCase())
+                    const contains_query = values.filter((value) => {
+                        return value
+                            .toString()
+                            .toLowerCase()
+                            .includes(q.toLowerCase())
                     }).length
 
                     if (contains_query) {
-                        searched_projects_count[project.id] = searched_projects_count[project.id] ? searched_projects_count[project.id] + 1 : 1
+                        searched_projects_count[project.id] =
+                            searched_projects_count[project.id]
+                                ? searched_projects_count[project.id] + 1
+                                : 1
                     }
                 })
             }
@@ -67,24 +61,39 @@ const ProjectsPage = props => {
             updateProjects(searched_projects)
         }
     }, [query, category])
-        
+
     return (
         <>
-            <Layout page = "Projects">
-                <div className = "search-container">
-                    <Search updateQuery = {value => {
-                        const value_list = value.trim().split(" ")
-                        updateQuery(value_list.length === 1 ? value_list : value_list.filter(v => v))
-                    }} updateCategory = {value => updateCategory(value)} />
+            <Layout page="Projects">
+                <h1>Length: {length}</h1>
+                <h1>Visible Projects: {visibleProjects.length}</h1>
+                <h1>Projects: {projects.length}</h1>
+                <div className="search-container">
+                    <Search
+                        updateQuery={(value) => {
+                            const value_list = value.trim().split(" ")
+                            updateQuery(
+                                value_list.length === 1
+                                    ? value_list
+                                    : value_list.filter((v) => v)
+                            )
+                        }}
+                        updateCategory={(value) => updateCategory(value)}
+                    />
                 </div>
-                <div className = "projects">
-                    {visibleProjects.slice(0, length).map(project => (
-                        <ProjectCard project = {project} key = {project.id} />
+                <div className="projects">
+                    {visibleProjects.slice(0, length).map((project) => (
+                        <ProjectCard project={project} key={project.id} />
                     ))}
                 </div>
-                {visibleProjects.length !== length && visibleProjects.length > 8 && (
+                {visibleProjects.length > length && visibleProjects.length > 8 && (
                     <div className="center">
-                        <div onClick = {showMore} className = "show-more">Show More</div>
+                        <div
+                            onClick={() => updateLength(length + 8)}
+                            className="show-more"
+                        >
+                            Show More
+                        </div>
                     </div>
                 )}
             </Layout>
@@ -106,7 +115,7 @@ const ProjectsPage = props => {
                         max-width: 80vw;
                     }
                 }
-                
+
                 @media only screen and (max-width: 950px) {
                     .projects {
                         grid-template-columns: repeat(3, 1fr);
@@ -148,14 +157,13 @@ const ProjectsPage = props => {
 
                 .show-more:hover {
                     transform: translateY(-2px);
-                    box-shadow: 
-                                0 -2px 2px rgba(0,0,0,0.07), 
-                                0 -1px 1px rgba(0,0,0,0.07), 
-                                0 1px 2px rgba(0,0,0,0.07), 
-                                0 2px 4px rgba(0,0,0,0.07), 
-                                0 4px 8px rgba(0,0,0,0.07), 
-                                0 8px 16px rgba(0,0,0,0.07),
-                                0 16px 32px rgba(0,0,0,0.07);
+                    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.07),
+                        0 -1px 1px rgba(0, 0, 0, 0.07),
+                        0 1px 2px rgba(0, 0, 0, 0.07),
+                        0 2px 4px rgba(0, 0, 0, 0.07),
+                        0 4px 8px rgba(0, 0, 0, 0.07),
+                        0 8px 16px rgba(0, 0, 0, 0.07),
+                        0 16px 32px rgba(0, 0, 0, 0.07);
                 }
 
                 .search-container {

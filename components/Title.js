@@ -2,16 +2,15 @@ import Link from "next/link"
 
 const Title = () => (
     <>
-        <div className = "title">
-            <Link href = "/">
-                <a className = "titleImg">
-                    <img src = "/images/logo.png" alt = "Logo" />
+        <div className="title">
+            <Link href="/">
+                <a className="titleImg">
+                    <img src="/images/logo.png" alt="Logo" />
                 </a>
             </Link>
-            <Link href = {""}>
-                <a className = "titleText">Rohan Phanse</a>
+            <Link href="/">
+                <a className="titleText">Rohan Phanse</a>
             </Link>
-            
         </div>
         <style jsx>{`
             .title {
@@ -53,17 +52,16 @@ const Title = () => (
             }
 
             @media only screen and (max-width: 800px) {
-                   .titleText {
-                       font-size: 1.5rem;
-                   }
+                .titleText {
+                    font-size: 1.5rem;
+                }
 
-                   .titleImg {
-                       --image-width: 50px;
-                   }
+                .titleImg {
+                    --image-width: 50px;
+                }
             }
         `}</style>
     </>
-
 )
 
 export default Title

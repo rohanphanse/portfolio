@@ -5,17 +5,17 @@ import Footer from "./footer/Footer"
 import Prism from "prismjs"
 import { useEffect } from "react"
 
-const Layout = props => {
+const Layout = (props) => {
     useEffect(() => {
         Prism.highlightAll()
     }, [])
 
     return (
         <>
-            <Metadata title = {props.page} />
+            <Metadata title={props.page} />
             <Title />
             <NavBar />
-            <div className = "content">{props.children}</div>
+            <div className="content">{props.children}</div>
             <Footer />
             <style jsx>{`
                 .content {

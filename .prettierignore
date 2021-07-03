@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Command: npx prettier --write .
 
 # Dependencies
 /node_modules
@@ -33,3 +33,13 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# No markdown
+*.md
+
+# More
+package.json
+package-lock.json
+.replit
+.gitignore
+.prettierignore

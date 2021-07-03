@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 
-const Search = props => {
+const Search = (props) => {
     const router = useRouter()
     const [show, toggleShow] = useState(false)
 
@@ -10,7 +10,7 @@ const Search = props => {
             search()
         }
     }
-    
+
     function search() {
         const query = document.getElementById("search").value
         router.push(`/search?q=${encodeURIComponent(query)}`)
@@ -26,10 +26,22 @@ const Search = props => {
 
     return (
         <>
-            <div className = "search">
-                <input id = "search" className = {show ? "searchOn" : "searchOff"} type = "text" name = "search" placeholder = "Search..." autoComplete = "off" onKeyPress = {handle_keypress} />
-                <div id  = "searchBtn" className = {show ? "searchBtnOn" : "searchBtnOff"} onClick = {toggle}>
-                    <i id = "searchIcon" className = "fas fa-search"></i>
+            <div className="search">
+                <input
+                    id="search"
+                    className={show ? "searchOn" : "searchOff"}
+                    type="text"
+                    name="search"
+                    placeholder="Search..."
+                    autoComplete="off"
+                    onKeyPress={handle_keypress}
+                />
+                <div
+                    id="searchBtn"
+                    className={show ? "searchBtnOn" : "searchBtnOff"}
+                    onClick={toggle}
+                >
+                    <i id="searchIcon" className="fas fa-search"></i>
                 </div>
             </div>
             <style jsx>{`
@@ -43,7 +55,7 @@ const Search = props => {
                 #search {
                     display: flex;
                     align-items: baseline;
-                    padding: 0.3rem 1.9rem 0.30rem 0.8rem;
+                    padding: 0.3rem 1.9rem 0.3rem 0.8rem;
                     color: var(--text-light);
                     border-radius: 50px;
                     transition: 0.3s;
@@ -77,7 +89,7 @@ const Search = props => {
                 }
 
                 .searchOn ::placeholder {
-                    color: #A3A3A3;
+                    color: #a3a3a3;
                 }
             `}</style>
         </>

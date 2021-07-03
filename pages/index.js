@@ -4,9 +4,7 @@ const HomePage = () => {
     return (
         <>
             <Layout></Layout>
-            <style jsx>{`
-                
-            `}</style>
+            <style jsx>{``}</style>
         </>
     )
 }

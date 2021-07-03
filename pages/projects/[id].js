@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout" 
+import Layout from "../../components/Layout"
 import { projectData, projectDataById } from "../../data/projects"
 import Utility from "../../utility"
 import Error from "next/error"
@@ -11,38 +11,52 @@ import Link from "next/link"
 const ProjectPage = ({ project, body }) => {
     return (
         <>
-            {project === "Error" ?
+            {project === "Error" ? (
                 <Error />
-            :
+            ) : (
                 <>
-                    <Layout page = {project.title}>
-                        <h1 className = "title">
+                    <Layout page={project.title}>
+                        <h1 className="title">
                             {project.title}
-                            <a href = {project.url} target = "_blank" className = "open-link">
-                                <div className = "fas fa-external-link-alt"></div>
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                className="open-link"
+                            >
+                                <div className="fas fa-external-link-alt"></div>
                             </a>
                         </h1>
-                        <div className = "date">{Utility.formatDate(project.date)}</div>
-                        <div className = "languages">
-                            {project.languages.map(language => (
-                                <LanguageTag language = {language} key = {language} />
+                        <div className="date">
+                            {Utility.formatDate(project.date)}
+                        </div>
+                        <div className="languages">
+                            {project.languages.map((language) => (
+                                <LanguageTag
+                                    language={language}
+                                    key={language}
+                                />
                             ))}
                         </div>
-                        <div className = "wrapper-container">
-                            <div className = "wrapper">
-                                <iframe className = "frame" src = {project.url} />
+                        <div className="wrapper-container">
+                            <div className="wrapper">
+                                <iframe className="frame" src={project.url} />
                             </div>
                         </div>
-                        <div className = "body-container">
-                            <div className = "body">
-                                <div className = "markdown">
-                                    <Markdown children = {body} rehypePlugins = {[rehypeRaw]} />
+                        <div className="body-container">
+                            <div className="body">
+                                <div className="markdown">
+                                    <Markdown
+                                        children={body}
+                                        rehypePlugins={[rehypeRaw]}
+                                    />
                                 </div>
                             </div>
                         </div>
                         <div className="center">
-                            <Link href = "/projects">
-                                <a className = "back-to-projects">Back To All Projects</a>
+                            <Link href="/projects">
+                                <a className="back-to-projects">
+                                    Back To All Projects
+                                </a>
                             </Link>
                         </div>
                     </Layout>
@@ -58,8 +72,8 @@ const ProjectPage = ({ project, body }) => {
                         }
 
                         .wrapper {
-                            width: var(--width); 
-                            height: var(--height); 
+                            width: var(--width);
+                            height: var(--height);
                         }
 
                         .frame {
@@ -69,7 +83,7 @@ const ProjectPage = ({ project, body }) => {
                             transform: scale(var(--scale));
                             transform-origin: 0 0;
                         }
-                        
+
                         @media only screen and (max-width: 850px) {
                             .container {
                                 --width: 600px;
@@ -135,7 +149,7 @@ const ProjectPage = ({ project, body }) => {
                             display: flex;
                             justify-content: center;
                         }
-        
+
                         .back-to-projects {
                             color: var(--text);
                             padding: 10px 15px;
@@ -145,21 +159,20 @@ const ProjectPage = ({ project, body }) => {
                             cursor: pointer;
                             transition-duration: 0.2s;
                         }
-        
+
                         .back-to-projects:hover {
                             transform: translateY(-2px);
-                            box-shadow: 
-                                        0 -2px 2px rgba(0,0,0,0.07), 
-                                        0 -1px 1px rgba(0,0,0,0.07), 
-                                        0 1px 2px rgba(0,0,0,0.07), 
-                                        0 2px 4px rgba(0,0,0,0.07), 
-                                        0 4px 8px rgba(0,0,0,0.07), 
-                                        0 8px 16px rgba(0,0,0,0.07),
-                                        0 16px 32px rgba(0,0,0,0.07);
+                            box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.07),
+                                0 -1px 1px rgba(0, 0, 0, 0.07),
+                                0 1px 2px rgba(0, 0, 0, 0.07),
+                                0 2px 4px rgba(0, 0, 0, 0.07),
+                                0 4px 8px rgba(0, 0, 0, 0.07),
+                                0 8px 16px rgba(0, 0, 0, 0.07),
+                                0 16px 32px rgba(0, 0, 0, 0.07);
                         }
                     `}</style>
                 </>
-            }
+            )}
         </>
     )
 }
@@ -186,14 +199,13 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-    const ids = projectData.map(project => project.id)
-    const paths = ids.map(id => ({ params: { id } }))
+    const ids = projectData.map((project) => project.id)
+    const paths = ids.map((id) => ({ params: { id } }))
 
     return {
         paths,
         fallback: false
     }
 }
-
 
 export default ProjectPage

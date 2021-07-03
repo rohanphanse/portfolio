@@ -3,11 +3,13 @@ import NavDropdown from "./NavDropdown"
 import NavSearch from "./NavSearch"
 import { useState, useEffect } from "react"
 
-const NavBar = props => {
+const NavBar = (props) => {
     const [nav, navToggle] = useState(false)
 
     const handleScroll = () => {
-        const distance = document.getElementById("navFull").getBoundingClientRect().top
+        const distance = document
+            .getElementById("navFull")
+            .getBoundingClientRect().top
         if (distance <= 0) {
             navToggle(true)
         } else {
@@ -22,14 +24,14 @@ const NavBar = props => {
 
     return (
         <>
-            <div id = "navFull" className = "navFull">
-                <div className = {nav ? "navExpand nav" : "navExpand"}>
-                    <div className = "navBar">
-                        <NavLink page = "/" name = "Home" active />
-                        <NavLink page = "/about" name = "About" />
-                        <NavLink page = "/projects" name = "Projects" />
-                        <NavLink page = "/blog" name = "Blog" />
-                        <NavLink page = "/contact" name = "Contact" />
+            <div id="navFull" className="navFull">
+                <div className={nav ? "navExpand nav" : "navExpand"}>
+                    <div className="navBar">
+                        <NavLink page="/" name="Home" active />
+                        <NavLink page="/about" name="About" />
+                        <NavLink page="/projects" name="Projects" />
+                        <NavLink page="/blog" name="Blog" />
+                        <NavLink page="/contact" name="Contact" />
                         <NavDropdown />
                         <NavSearch />
                     </div>
@@ -69,11 +71,11 @@ const NavBar = props => {
                 .nav {
                     width: 100vw;
                     border-radius: 0px;
-                    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
-                            0 2px 2px rgba(0,0,0,0.11), 
-                            0 4px 4px rgba(0,0,0,0.11), 
-                            0 8px 8px rgba(0,0,0,0.11),
-                            0 16px 16px rgba(0,0,0,0.11);
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11),
+                        0 2px 2px rgba(0, 0, 0, 0.11),
+                        0 4px 4px rgba(0, 0, 0, 0.11),
+                        0 8px 8px rgba(0, 0, 0, 0.11),
+                        0 16px 16px rgba(0, 0, 0, 0.11);
                 }
 
                 @media only screen and (max-width: 1130px) {

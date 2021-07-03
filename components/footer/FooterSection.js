@@ -1,7 +1,7 @@
-const FooterSection = props => (
+const FooterSection = (props) => (
     <>
-        <div className = "footerSection">
-            <div className = "footerTitle">{props.title}</div>
+        <div className="footerSection">
+            <div className="footerTitle">{props.title}</div>
             {props.children}
         </div>
         <style jsx>{`
