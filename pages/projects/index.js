@@ -65,9 +65,6 @@ const ProjectsPage = (props) => {
     return (
         <>
             <Layout page="Projects">
-                <h1>Length: {length}</h1>
-                <h1>Visible Projects: {visibleProjects.length}</h1>
-                <h1>Projects: {projects.length}</h1>
                 <div className="search-container">
                     <Search
                         updateQuery={(value) => {
