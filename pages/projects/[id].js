@@ -155,7 +155,7 @@ const ProjectPage = ({ project, body }) => {
                             padding: 10px 15px;
                             border-radius: 4px;
                             background-color: var(--medium);
-                            margin-top: 20px;
+                            margin-top: 10px;
                             cursor: pointer;
                             transition-duration: 0.2s;
                         }
