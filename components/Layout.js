@@ -6,9 +6,11 @@ import Prism from "prismjs"
 import { useEffect } from "react"
 
 const Layout = (props) => {
-    useEffect(() => {
-        Prism.highlightAll()
-    }, [])
+    if (props.usePrism) {
+        useEffect(() => {
+            Prism.highlightAll()
+        }, [])
+    }
 
     return (
         <>

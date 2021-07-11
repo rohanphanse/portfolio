@@ -4,33 +4,30 @@ export const projectData = [
         title: "Shape Wars",
         description:
             "A war has risen amongst the shapes. Fight against the relentless waves of enemies and defend your circle at all costs.",
-        body: "This is Shape Wars",
         date: { month: "April", year: 2021 },
         url: "https://shape-wars.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/shape-wars.png"
+        thumbnail: "/images/projects/shape-wars.png"
     },
     {
         id: "tic-tac-toe",
         title: "Tic-Tac-Toe",
         description:
             "Play this classic game of X's and O's, with two gamemodes to choose from.",
-        body: "asdfoidsfsdfhjksdjkhfsdjhkfhjdks",
         date: { month: "March", year: 2021 },
         url: "https://tic-tac-toe.roar123.repl.co",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/tic-tac-toe.png"
+        thumbnail: "/images/projects/tic-tac-toe.png"
     },
     {
         id: "stock-market-visualizer",
         title: "Stock Market Visualizer",
         description:
             "The best way to view stock market statistics from the comfort of the Python terminal.",
-        body: "asdfoidsfsdfhjksdjkhfsdjhkfhjdks",
         date: { month: "June", year: 2020 },
         url: "https://replit.com/@Roar123/Stock-Market?lite=true",
         languages: ["Python"],
-        thumbnail: "/images/stock-market.png"
+        thumbnail: "/images/projects/stock-market.png"
     },
     {
         id: "hangman",
@@ -40,7 +37,7 @@ export const projectData = [
         date: { month: "April", year: 2020 },
         url: "https://replit.com/@Roar123/Hangman?lite=true",
         languages: ["Python"],
-        thumbnail: "/images/hangman.png"
+        thumbnail: "/images/projects/hangman.png"
     },
     {
         id: "mastermind",
@@ -51,7 +48,7 @@ export const projectData = [
         date: { month: "March", year: 2020 },
         url: "https://replit.com/@Roar123/Mastermind?lite=true",
         languages: ["Python"],
-        thumbnail: "/images/mastermind.png"
+        thumbnail: "/images/projects/mastermind.png"
     },
     {
         id: "cube-timer",
@@ -61,7 +58,7 @@ export const projectData = [
         date: { month: "February", year: 2021 },
         url: "https://cube-timer.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/cube-timer.png"
+        thumbnail: "/images/projects/cube-timer.png"
     },
     {
         id: "pongy",
@@ -70,7 +67,7 @@ export const projectData = [
         date: { month: "August", year: 2020 },
         url: "https://pongy.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/pongy.png"
+        thumbnail: "/images/projects/pongy.png"
     },
     {
         id: "password-generator",
@@ -80,7 +77,7 @@ export const projectData = [
         date: { month: "October", year: 2020 },
         url: "https://password.roar123.repl.co",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/password-generator.png"
+        thumbnail: "/images/projects/password-generator.png"
     },
     {
         id: "polygon-generator",
@@ -90,7 +87,7 @@ export const projectData = [
         date: { month: "September", year: 2020 },
         url: "https://polygon.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/polygon-generator.png"
+        thumbnail: "/images/projects/polygon-generator.png"
     },
     {
         id: "cannon",
@@ -100,7 +97,7 @@ export const projectData = [
         date: { month: "September", year: 2020 },
         url: "https://snap.berkeley.edu/snap/snap.html#present:Username=95038112&ProjectName=U1L5%20Follow%20the%20Leader",
         languages: ["Snap"],
-        thumbnail: "/images/cannon.png"
+        thumbnail: "/images/projects/cannon.png"
     },
     {
         id: "draw-tool",
@@ -110,7 +107,7 @@ export const projectData = [
         date: { month: "September", year: 2020 },
         url: "https://snap.berkeley.edu/snap/snap.html#present:Username=95038112&ProjectName=draw",
         languages: ["Snap"],
-        thumbnail: "/images/draw-tool.png"
+        thumbnail: "/images/projects/draw-tool.png"
     },
     {
         id: "guess-number",
@@ -120,7 +117,7 @@ export const projectData = [
         date: { month: "October", year: 2020 },
         url: "https://guess-number.roar123.repl.co",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/guess-number.png"
+        thumbnail: "/images/projects/guess-number.png"
     },
     {
         id: "react-clock",
@@ -129,7 +126,7 @@ export const projectData = [
         date: { month: "June", year: 2020 },
         url: "https://react-clock.roar123.repl.co/",
         languages: ["React", "JavaScript"],
-        thumbnail: "/images/react-clock.png"
+        thumbnail: "/images/projects/react-clock.png"
     },
     {
         id: "contact-list",
@@ -139,7 +136,7 @@ export const projectData = [
         date: { month: "December", year: 2020 },
         url: "https://contact-list.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/contact-list.png"
+        thumbnail: "/images/projects/contact-list.png"
     },
     {
         id: "binary-converter",
@@ -149,7 +146,7 @@ export const projectData = [
         date: { month: "November", year: 2020 },
         url: "https://binary.roar123.repl.co/",
         languages: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "/images/binary-converter.png"
+        thumbnail: "/images/projects/binary-converter.png"
     },
     {
         id: "portfolio",
@@ -159,7 +156,7 @@ export const projectData = [
         date: { month: "May", year: 2021 },
         url: "https://33j58.sse.codesandbox.io/",
         languages: ["Next.js", "React", "JavaScript"],
-        thumbnail: "/images/portfolio.png"
+        thumbnail: "/images/projects/portfolio.png"
     },
     {
         id: "disease-spread",
@@ -169,7 +166,7 @@ export const projectData = [
         date: { month: "February", year: 2021 },
         url: "https://snap.berkeley.edu/snap/snap.html#present:Username=95038112&ProjectName=Disease%20Spread",
         languages: ["Snap"],
-        thumbnail: "/images/disease-spread.png"
+        thumbnail: "/images/projects/disease-spread.png"
     },
     {
         id: "color-search",
@@ -179,7 +176,7 @@ export const projectData = [
         date: { month: "June", year: 2020 },
         url: "https://replit.com/@Roar123/Color-Search?lite=true",
         languages: ["Python"],
-        thumbnail: "/images/color-search.png"
+        thumbnail: "/images/projects/color-search.png"
     }
 ]
 
