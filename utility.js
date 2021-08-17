@@ -1,20 +1,8 @@
 const Utility = {}
 
 Utility.monthToNumber = (month) => {
-    const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ]
+    // prettier ignore
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     return months.indexOf(month)
 }
 
@@ -52,6 +40,35 @@ Utility.languageTags = {
     Snap: { color: "#e0a817", textColor: "black" },
     React: { color: "#61dbfb", textColor: "black" },
     "Next.js": { color: "white", textColor: "black" }
+}
+
+Utility.searchByQueryList = (queryList, [entries, entriesById], searchableValues) => {
+    const searched_entries_count = {}
+
+    for (const query of queryList) {
+        entries.filter((entry) => {
+            const contains_query = searchableValues.filter((value) => {
+                return value
+                    .toString()
+                    .toLowerCase()
+                    .includes(query.toLowerCase())
+            }).length
+
+            if (contains_query) {
+                searched_entries_count[entry.id] =
+                    searched_entries_count[entry.id]
+                        ? searched_entries_count[entry.id] + 1
+                        : 1
+            }
+        })
+    }
+
+    const searched_entries = []
+    for (const id in searched_entries_count) {
+        if (searched_entries_count[id] === query.length) {
+            searched_entries.push(entriesById[id])
+        }
+    }
 }
 
 export default Utility

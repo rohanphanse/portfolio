@@ -3,7 +3,7 @@ import Layout from "../../components/Layout"
 import { projectData, projectDataById } from "../../data/projects"
 import Utility from "../../utility"
 import { useState, useEffect } from "react"
-import Search from "../../components/ProjectSearch"
+import SearchBar from "../../components/SearchBar"
 
 const ProjectsPage = (props) => {
     // Projects
@@ -12,70 +12,46 @@ const ProjectsPage = (props) => {
     const [length, updateLength] = useState(8)
 
     // Query
-    const [query, updateQuery] = useState([])
+    const [queryList, updateQueryList] = useState([])
     const [category, updateCategory] = useState("All")
 
     useEffect(() => {
-        if (query.length) {
-            const searched_projects_count = {}
-            for (const q of query) {
-                projects.filter((project) => {
-                    let values = []
-                    if (category === "All") {
-                        values = [
-                            project.title,
-                            project.date.year,
-                            project.date.month,
-                            ...project.languages
-                        ]
-                    } else if (category === "Date") {
-                        values = [project.date.year, project.date.month]
-                    } else if (category === "Title") {
-                        values = [project.title]
-                    } else if (category === "Language") {
-                        values = [...project.languages]
-                    }
-
-                    const contains_query = values.filter((value) => {
-                        return value
-                            .toString()
-                            .toLowerCase()
-                            .includes(q.toLowerCase())
-                    }).length
-
-                    if (contains_query) {
-                        searched_projects_count[project.id] =
-                            searched_projects_count[project.id]
-                                ? searched_projects_count[project.id] + 1
-                                : 1
-                    }
-                })
+        if (queryList.length) {
+            let values = []
+            if (category === "All") {
+                values = [
+                    project.title,
+                    project.date.year,
+                    project.date.month,
+                    ...project.languages
+                ]
+            } else if (category === "Date") {
+                values = [project.date.year, project.date.month]
+            } else if (category === "Title") {
+                values = [project.title]
+            } else if (category === "Language") {
+                values = [...project.languages]
             }
-
-            const searched_projects = []
-            for (const id in searched_projects_count) {
-                if (searched_projects_count[id] === query.length) {
-                    searched_projects.push(projectDataById[id])
-                }
-            }
-            updateProjects(searched_projects)
+            
+            updateProjects(Utility.searchByQueryList(queryList, [projectData, projectDataById], values))
         }
-    }, [query, category])
+    }, [queryList, category])
 
     return (
         <>
             <Layout page="Projects">
                 <div className="search-container">
-                    <Search
+                    <SearchBar
                         updateQuery={(value) => {
                             const value_list = value.trim().split(" ")
-                            updateQuery(
+                            updateQueryList(
                                 value_list.length === 1
                                     ? value_list
                                     : value_list.filter((v) => v)
                             )
                         }}
                         updateCategory={(value) => updateCategory(value)}
+                        categories={["All", "Title", "Date", "Language"]}
                     />
                 </div>
                 <div className="projects">

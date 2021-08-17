@@ -1,5 +1,5 @@
 import { siteData } from "../data/site"
-import Search from "../components/Search"
+import SearchBar from "../components/SearchBar"
 import Layout from "../components/Layout"
 
 const SearchPage = (props) => {
@@ -7,7 +7,7 @@ const SearchPage = (props) => {
         <>
             <Layout page = "Search">
                 <h1>{props.initialQuery}</h1>
-                <Search />
+                <SearchBar categories={["All", "Title", "Description", "Type"]} />
             </Layout>
         </>
     )

@@ -1,4 +1,4 @@
-const ProjectSearch = (props) => {
+const SearchBar = (props) => {
     return (
         <>
             <div className="search-container">
@@ -9,10 +9,9 @@ const ProjectSearch = (props) => {
                             props.updateCategory(event.target.value)
                         }
                     >
-                        <option value="All">All</option>
-                        <option value="Title">Title</option>
-                        <option value="Date">Date</option>
-                        <option value="Language">Language</option>
+                        {props.categories.map((c) => (
+                            <option value={c}>{c}</option>
+                        ))}
                     </select>
                     <div className="select-arrow fas fa-angle-down"></div>
                 </div>
@@ -79,4 +78,4 @@ const ProjectSearch = (props) => {
     )
 }
 
-export default ProjectSearch
+export default SearchBar
