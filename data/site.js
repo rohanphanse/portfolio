@@ -1,11 +1,13 @@
 import { projectData } from "./projects"
 import { blogData } from "./blog"
+import Utility from "../utility"
 
 const projects = projectData.map((project) => ({
     title: project.title,
     description: project.description,
     link: `/projects/${project.id}`,
-    type: "project"
+    type: "project",
+    id: project.id,
 }))
 
 const pages = [
@@ -57,3 +59,10 @@ export const siteData = [
     ...pages,
     ...articles
 ]
+export const siteDataById = {}
+
+for (let s = 0; s < siteData.length; s++) {
+    const id = Utility.generateId()
+    siteData[s].id = id
+    siteDataById[id] = siteData[s]
+}

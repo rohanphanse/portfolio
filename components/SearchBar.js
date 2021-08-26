@@ -18,7 +18,7 @@ const SearchBar = (props) => {
                 <input
                     type="text"
                     className="search-bar"
-                    onChange={(event) => props.updateQuery(event.target.value)}
+                    onChange={(event) => {props.updateQuery(event.target.value)}}
                 />
             </div>
             <style jsx>{`

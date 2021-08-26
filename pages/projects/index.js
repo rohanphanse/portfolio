@@ -17,23 +17,48 @@ const ProjectsPage = (props) => {
 
     useEffect(() => {
         if (queryList.length) {
-            let values = []
-            if (category === "All") {
-                values = [
-                    project.title,
-                    project.date.year,
-                    project.date.month,
-                    ...project.languages
-                ]
-            } else if (category === "Date") {
-                values = [project.date.year, project.date.month]
-            } else if (category === "Title") {
-                values = [project.title]
-            } else if (category === "Language") {
-                values = [...project.languages]
+            const searched_projects_count = {}
+            for (const query of queryList) {
+                projects.filter((project) => {
+                    let values = []
+                    if (category === "All") {
+                        values = [
+                            project.title,
+                            project.date.year,
+                            project.date.month,
+                            ...project.languages
+                        ]
+                    } else if (category === "Date") {
+                        values = [project.date.year, project.date.month]
+                    } else if (category === "Title") {
+                        values = [project.title]
+                    } else if (category === "Language") {
+                        values = [...project.languages]
+                    }
+
+                    const contains_query = values.filter((value) => {
+                        return value
+                            .toString()
+                            .toLowerCase()
+                            .includes(query.toLowerCase())
+                    }).length
+
+                    if (contains_query) {
+                        searched_projects_count[project.id] =
+                            searched_projects_count[project.id]
+                                ? searched_projects_count[project.id] + 1
+                                : 1
+                    }
+                })
             }
-            
-            updateProjects(Utility.searchByQueryList(queryList, [projectData, projectDataById], values))
+
+            const searched_projects = []
+            for (const id in searched_projects_count) {
+                if (searched_projects_count[id] === queryList.length) {
+                    searched_projects.push(projectDataById[id])
+                }
+            }
+            updateProjects(searched_projects) 
         }
     }, [queryList, category])
 
