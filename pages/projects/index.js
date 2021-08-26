@@ -58,7 +58,7 @@ const ProjectsPage = (props) => {
                     searched_projects.push(projectDataById[id])
                 }
             }
-            updateProjects(searched_projects) 
+            updateProjects(searched_projects)
         }
     }, [queryList, category])
 

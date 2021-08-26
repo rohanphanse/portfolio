@@ -7,14 +7,14 @@ const projects = projectData.map((project) => ({
     description: project.description,
     link: `/projects/${project.id}`,
     type: "project",
-    id: project.id,
+    id: project.id
 }))
 
 const pages = [
     {
         title: "Home",
         description: "The home",
-        link: "/",
+        link: "/"
     },
     {
         title: "About",
@@ -40,7 +40,7 @@ const pages = [
         title: "Search",
         description: "Search sitewide for stuff",
         link: "/search"
-    },
+    }
 ]
 
 for (let p = 0; p < pages.length; p++) {
@@ -54,11 +54,7 @@ const articles = blogData.map((article) => ({
     type: "article"
 }))
 
-export const siteData = [
-    ...projects,
-    ...pages,
-    ...articles
-]
+export const siteData = [...projects, ...pages, ...articles]
 export const siteDataById = {}
 
 for (let s = 0; s < siteData.length; s++) {

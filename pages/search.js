@@ -56,31 +56,30 @@ const SearchPage = (props) => {
                     searched_results.push(siteDataById[id])
                 }
             }
-            updateResults(searched_results) 
+            updateResults(searched_results)
         }
     }, [queryList, category])
 
     function processQuery(value) {
         const value_list = value.trim().split(" ")
         updateQueryList(
-            value_list.length === 1
-                ? value_list
-                : value_list.filter((v) => v)
+            value_list.length === 1 ? value_list : value_list.filter((v) => v)
         )
     }
 
     return (
         <>
-            <Layout page = "Search">
+            <Layout page="Search">
                 <h1>{props.initialQuery}</h1>
-                <SearchBar categories={["All", "Title", "Description", "Type"]} updateQuery={(value) => processQuery(value)}
-                        updateCategory={(value) => updateCategory(value)}
-                        initialQuery = {props.initialQuery} />
+                <SearchBar
+                    categories={["All", "Title", "Description", "Type"]}
+                    updateQuery={(value) => processQuery(value)}
+                    updateCategory={(value) => updateCategory(value)}
+                    initialQuery={props.initialQuery}
+                />
                 <pre>{JSON.stringify(visibleResults)}</pre>
             </Layout>
-            <style jsx>{`
-                
-            `}</style>
+            <style jsx>{``}</style>
         </>
     )
 }

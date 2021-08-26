@@ -2,7 +2,20 @@ const Utility = {}
 
 Utility.monthToNumber = (month) => {
     // prettier ignore
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
     return months.indexOf(month)
 }
 
