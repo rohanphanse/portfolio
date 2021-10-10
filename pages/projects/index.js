@@ -66,6 +66,7 @@ const ProjectsPage = (props) => {
         <>
             <Layout page="Projects">
                 <div className="search-container">
+                    <h1 className = "page-title">Projects</h1>
                     <SearchBar
                         updateQuery={(value) => {
                             const value_list = value.trim().split(" ")
@@ -166,14 +167,15 @@ const ProjectsPage = (props) => {
 
                 .search-container {
                     display: flex;
-                    flex-dirextion: row;
+                    flex-direction: column;
                     justify-content: center;
+                    align-items: center;
                 }
 
                 .page-title {
-                    font-size: 2rem;
+                    font-size: 2.3rem;
                     font-weight: 600;
-                    text-align: center;
+                    margin-bottom: 20px;
                 }
             `}</style>
         </>

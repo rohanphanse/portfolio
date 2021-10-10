@@ -1,4 +1,8 @@
+import { useState } from "react"
+
 const SearchBar = (props) => {
+    const [query, updateQuery] = useState(props.query || "")
+
     return (
         <>
             <div className="search-container">
@@ -19,8 +23,10 @@ const SearchBar = (props) => {
                     type="text"
                     className="search-bar"
                     onChange={(event) => {
+                        updateQuery(event.target.value)
                         props.updateQuery(event.target.value)
                     }}
+                    value={query}
                 />
             </div>
             <style jsx>{`

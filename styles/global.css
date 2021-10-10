@@ -34,8 +34,7 @@ h1 {
 }
 
 a {
-    color: var(--text);
-    text-decoration: none;
+    color: var(--link);
 }
 
 img {

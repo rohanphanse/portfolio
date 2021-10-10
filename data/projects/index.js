@@ -154,7 +154,7 @@ export const projectData = [
         description:
             "That's right, this very portfolio that you're looking at.",
         date: { month: "May", year: 2021 },
-        url: "https://33j58.sse.codesandbox.io/",
+        url: "https://rohanphanse.vercel.app",
         languages: ["Next.js", "React", "JavaScript"],
         thumbnail: "/images/projects/portfolio.png"
     },

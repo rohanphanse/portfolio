@@ -7,6 +7,7 @@ const projects = projectData.map((project) => ({
     description: project.description,
     link: `/projects/${project.id}`,
     type: "project",
+    thumbnail: project.thumbnail,
     id: project.id
 }))
 

@@ -3,6 +3,38 @@ import SearchBar from "../components/SearchBar"
 import Layout from "../components/Layout"
 import { useState, useEffect } from "react"
 import Utility from "../utility"
+import Link from "next/link"
+
+const SearchResult = (props) => {
+    console.log(props.result)
+    return (
+        <>
+            <div className="result">
+                <img src = {props.result.thumbnail || ""} className = "thumbnail" />
+                <div>
+                    <h1>{props.result.title}</h1>
+                    <p>{props.result.description}</p>
+                    <Link href = {props.result.link}>
+                        <a>{props.result.link}</a>
+                    </Link>
+                    <h4>{props.result.type}</h4>
+                </div>
+            </div>
+            <style jsx>{`
+                .result {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .thumbnail {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 20px;
+                }
+            `}</style>
+        </>
+    )
+}
 
 const SearchPage = (props) => {
     // Site results
@@ -11,7 +43,8 @@ const SearchPage = (props) => {
     const [length, updateLength] = useState(8)
 
     // Query
-    const [queryList, updateQueryList] = useState([])
+    console.log(props.query)
+    const [queryList, updateQueryList] = useState(props.query ? processAndReturnQuery(props.query) : [])
     const [category, updateCategory] = useState("All")
 
     useEffect(() => {
@@ -67,29 +100,40 @@ const SearchPage = (props) => {
         )
     }
 
+    function processAndReturnQuery(value) {
+        const value_list = value.trim().split(" ")
+        return value_list.length === 1 ? value_list : value_list.filter((v) => v)
+    }
+
     return (
         <>
             <Layout page="Search">
-                <h1>{props.initialQuery}</h1>
+                <h1>{props.query}</h1>
                 <SearchBar
                     categories={["All", "Title", "Description", "Type"]}
                     updateQuery={(value) => processQuery(value)}
                     updateCategory={(value) => updateCategory(value)}
-                    initialQuery={props.initialQuery}
+                    query={props.query}
                 />
-                <pre>{JSON.stringify(visibleResults)}</pre>
+                <div className = "search-results">
+                    {visibleResults.map(result => (
+                        <SearchResult result = {result} key = {result.id} />
+                    ))}
+                </div>
             </Layout>
-            <style jsx>{``}</style>
+            <style jsx>{`
+            
+            `}</style>
         </>
     )
 }
 
 export const getServerSideProps = (context) => {
-    const initialQuery = context.query.q
+    const query = context.query.q || ""
 
     return {
         props: {
-            initialQuery
+            query
         }
     }
 }
